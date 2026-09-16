@@ -5,30 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Trabajo Práctico 2 - Lenguajes IV" />
   <title>Estudio Norte</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
-    :root{font-family:Manrope,Arial,sans-serif;color:#171916;background:#eff0ea}*{box-sizing:border-box}body{margin:0;min-width:320px}.site{min-height:100vh;max-width:1240px;margin:auto;padding:32px 48px 28px;display:flex;flex-direction:column}header,footer{display:flex;justify-content:space-between;align-items:center;gap:24px}.brand,.eyebrow,footer{font:500 .73rem/1 'DM Mono',monospace;letter-spacing:.08em}.brand{color:inherit;text-decoration:none}.nav{display:flex;gap:6px}.nav button{cursor:pointer;border:1px solid transparent;border-radius:999px;background:none;color:#4a4d47;padding:8px 13px;font:inherit;font-size:.85rem}.nav button:hover,.nav button.active{border-color:#171916;color:#171916}.hero{flex:1;display:grid;align-content:center;max-width:900px;padding:90px 0}.eyebrow{color:#5b764b;margin:0 0 22px}h1{font-size:clamp(3.2rem,8vw,7.5rem);letter-spacing:-.075em;line-height:.96;margin:0;font-weight:600}.copy{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.55;max-width:580px;margin:36px 0 0;color:#4a4d47}footer{color:#686b65;padding-top:22px;border-top:1px solid #caccc4}@media(max-width:620px){.site{padding:24px}header{align-items:flex-start;flex-direction:column}.hero{padding:70px 0}.nav{width:100%;justify-content:space-between}.nav button{padding:7px 8px}}
-  </style>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
-<body><div id="root"></div>
-<script type="module">
-  import React,{useEffect,useState} from 'https://esm.sh/react@19.2.0';
-  import {createRoot} from 'https://esm.sh/react-dom@19.2.0/client';
-  const pages={
-    inicio:{label:'Inicio',eyebrow:'ESTUDIO NORTE',title:'Diseño digital con intención.',copy:'Creamos productos web claros, útiles y duraderos para organizaciones que quieren comunicar mejor.'},
-    servicios:{label:'Servicios',eyebrow:'LO QUE HACEMOS',title:'Estrategia, identidad y desarrollo.',copy:'Un enfoque simple: entender el problema, ordenar lo esencial y construir una solución medible.'},
-    contacto:{label:'Contacto',eyebrow:'HABLEMOS',title:'Un buen proyecto empieza con una conversación.',copy:'Escribinos para conocer tu idea y definir un próximo paso concreto.'}
-  };
-  function App(){
-    const initial=location.hash.slice(1);const [current,setCurrent]=useState(pages[initial]?initial:'inicio');
-    useEffect(()=>{const change=()=>{const next=location.hash.slice(1);setCurrent(pages[next]?next:'inicio')};addEventListener('hashchange',change);return()=>removeEventListener('hashchange',change)},[]);
-    const go=(key)=>{location.hash=key==='inicio'?'':key;setCurrent(key)};const page=pages[current];const e=React.createElement;
-    return e('main',{className:'site'},
-      e('header',null,e('a',{className:'brand',href:'#',onClick:(x)=>{x.preventDefault();go('inicio')}},'ESTUDIO NORTE'),
-        e('nav',{className:'nav','aria-label':'Navegación principal'},Object.entries(pages).map(([key,item])=>e('button',{key,className:current===key?'active':'',onClick:()=>go(key),'aria-current':current===key?'page':undefined},item.label)))),
-      e('section',{className:'hero','aria-labelledby':'title'},e('p',{className:'eyebrow'},page.eyebrow),e('h1',{id:'title'},page.title),e('p',{className:'copy'},page.copy)),
-      e('footer',null,e('span',null,'TP 2 · Lenguajes IV'),e('span',null,'2026'))
-    )
-  }
-  createRoot(document.getElementById('root')).render(React.createElement(App));
-</script></body></html>
+<body>
+  <div id="root"></div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
